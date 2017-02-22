@@ -10,4 +10,5 @@ class User < ApplicationRecord
     ignore_record_country_code: true,
     ignore_record_country_number: true
   }
+  has_many :tasks
 end

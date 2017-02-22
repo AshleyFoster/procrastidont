@@ -9,14 +9,20 @@
   </head>
 
   <body>
-    <% if user_signed_in?%>
-      Logged in as <strong><%= current_user.email %></strong>
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
+    <header>
+      <div class="container">
+        <h1 class="logo">Procrastidont</h1>
+        <% if user_signed_in?%>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <%= link_to edit_user_registration_path do %>
+            <img class="current-avatar" src="<%= gravatar_url(current_user) %>"/>
+          <% end %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> |
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
+      </div>
+    </header>
 
     <% if notice %>
       <p class="notice"><%= notice %></p>
@@ -25,6 +31,8 @@
       <p class="alert"><%= alert %></p>
     <% end %>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

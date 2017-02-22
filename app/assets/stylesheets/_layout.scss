@@ -1,0 +1,38 @@
+body, html {
+  margin: 0;
+}
+
+header {
+  background-color: #eee;
+  margin-bottom: 18px;
+  padding: 18px 0;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo {
+      font-size: 22px;
+      margin-bottom: 0;
+      flex: 1;
+    }
+
+    .current-avatar {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+    }
+
+    a {
+      margin-left: 14px;
+      margin-bottom: 0;
+      display: inherit;
+    }
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}

@@ -42,6 +42,9 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     bcrypt (3.1.11)
+    bourbon (4.3.2)
+      sass (~> 3.4)
+      thor (~> 0.19)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.12.0)
@@ -103,10 +106,14 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    neat (2.0.0)
+      sass (~> 3.4)
+      thor (~> 0.19)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    pg (0.19.0)
     phony (2.15.41)
     phony_rails (0.14.5)
       activesupport (>= 3.0)
@@ -209,6 +216,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bourbon
   byebug
   capybara
   capybara-webkit
@@ -218,6 +226,8 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  neat
+  pg (~> 0.18)
   phony_rails
   puma (~> 3.0)
   rails (~> 5.0.1)

@@ -1,0 +1,32 @@
+<div class="task-header">
+  <h1 class="title">My Tasks</h1>
+
+  <%= link_to "Create another task", task_path(:new), class: "button" %>
+</div>
+
+<% if @tasks.empty? %>
+  <h2 class="subtitle"> You have no tasks! </h2>
+  <a class="button is-primary"><%= link_to "Create a task",
+    task_path(:new) %>
+  </a>
+<% else %>
+  <% @tasks.each do |task| %>
+    <%= link_to edit_task_path(task), class: "task" do %>
+      <div class="details">
+        <h2 class="title">
+          <%= task.title %>
+        </h2>
+        <p class="description"><%= task.description %></p>
+      </div>
+
+      <div class="time-and-days">
+        <small class="time"><%= task.time.strftime("%H:%M%p") %></small>
+        <% Date::DAYNAMES.each do |day| %>
+          <span class="day <%= "active" if task.days_of_week.include?(day.downcase) %>">
+            <%= day_to_short_day(day) %>
+          </span>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

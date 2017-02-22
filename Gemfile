@@ -17,6 +17,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'phony_rails'
+gem 'pg', '~> 0.18'
+gem 'bourbon'
+gem 'neat'
 
 group :development, :test do
   gem 'byebug', platform: :mri

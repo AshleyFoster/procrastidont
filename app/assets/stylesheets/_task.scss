@@ -1,0 +1,57 @@
+.task-header{
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  .title{
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+
+.task{
+  color: #444;
+  background-color: #f4f4f4;
+  border-bottom: 2px solid #d1d1d1;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+
+  &:hover {
+    color: #444;
+    background-color: #efefef;
+  }
+
+  .details {
+    flex: 1;
+
+    .title {
+      margin-bottom: 6px;
+    }
+
+    .description {
+      margin-bottom: 0;
+    }
+  }
+
+  .time-and-days {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .time {
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .day {
+      margin-left: 8px;
+      font-weight: bold;
+      color: #aaa;
+
+      &.active {
+        color: #666;
+      }
+    }
+  }
+}
+
