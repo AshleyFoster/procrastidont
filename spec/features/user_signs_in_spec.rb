@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Login" do
   scenario "register redirects user to home" do
-    user = create(:user, password: 'password')
+    user = create(:user)
 
     visit '/'
     click_on 'Login'
@@ -12,6 +12,6 @@ RSpec.feature "Login" do
 
     click_button 'Log in'
 
-    expect(page).to have_content 'Logged in as'
+    expect(page).to have_content 'Logout'
   end
 end

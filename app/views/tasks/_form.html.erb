@@ -1,24 +1,31 @@
-<p>
-  <%= f.label :title %><br>
+<div>
+  <%= f.label :title %>
   <%= f.text_field :title %>
-</p>
+</div>
 
-<p>
-  <%= f.label :description %><br>
+<div>
+  <%= f.label :description %>
   <%= f.text_area :description %>
-</p>
+</div>
 
-<p>
-  <%= f.time_select :time %>
-</p>
+<div>
+  <%= f.label :time %>
 
-<p>
-  <% Date::DAYNAMES.each do |day| %>
-    <%= f.check_box :days_of_week,
-      { multiple: true, checked: task.days_of_week.include?(day.downcase) },
-      day.downcase,
-      nil
-    %>
-    <%= f.label :days_of_week, day %><br>
-  <% end %>
-</p>
+  <div class="time-select">
+    <%= f.time_select :time %>
+  </div>
+</div>
+
+<div>
+  <%= f.label :days_of_week %>
+  <div class="days-of-week">
+    <% Date::DAYNAMES.each do |day| %>
+      <%= f.check_box :days_of_week,
+        { multiple: true, checked: task.days_of_week.include?(day.downcase) },
+        day.downcase,
+        nil
+      %>
+    <%= f.label "days_of_week_#{day.downcase}", day %>
+    <% end %>
+  </div>
+</div>

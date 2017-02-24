@@ -1,8 +1,14 @@
-<h1> Edit Task </h1>
+<div class="form-header">
+  <h1> Edit Task </h1>
+</div>
 
-<%= form_for @task do |f| %>
+<%= form_for @task, html: { class: "task-form" }  do |f| %>
   <%= render "form", f: f, task: @task %>
-  <%= f.submit "Update task" %>
-<% end %><br>
+
+  <div class="actions">
+    <%= f.submit "Update task" %>
+  </div>
+<% end %>
+
 <%= link_to "Delete Task", task_path(@task), method: :delete %>
 

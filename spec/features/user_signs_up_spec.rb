@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Signing in" do
   scenario "register redirects user to home" do
     visit '/'
-    click_on 'Sign up'
+    first(:link, 'Sign up').click
 
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Phone number', with: '555-555-5555'
@@ -12,6 +12,6 @@ RSpec.feature "Signing in" do
 
     click_button 'Sign up'
 
-    expect(page).to have_content 'Logged in as'
+    expect(page).to have_content 'Logout'
   end
 end

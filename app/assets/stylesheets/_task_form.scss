@@ -1,0 +1,46 @@
+.task-form {
+  align-items: center;
+
+  .form-header {
+    margin-bottom: 0;
+  }
+
+  .time-select {
+    display: flex;
+
+    select {
+      max-width: 100px;
+    }
+  }
+
+  .days-of-week {
+    display: flex;
+
+    input {
+      display: none;
+    }
+
+    input:checked + label {
+      background-color: #ccc;
+      color: #333;
+    }
+
+    label {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #eee;
+      color: #777;
+      border-radius: $base-border-radius;
+      margin-right: 10px;
+
+    }
+  }
+
+  .actions {
+    margin-top: 18px;
+  }
+}
+
+.task_title{
+  margin-bottom: 0;
+}
