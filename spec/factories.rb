@@ -10,5 +10,6 @@ FactoryGirl.define do
     description 'My description'
     time Time.now
     days_of_week ["monday", "tuesday"]
+    user
   end
 end

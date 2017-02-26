@@ -20,6 +20,7 @@ gem 'phony_rails'
 gem 'pg', '~> 0.18'
 gem 'bourbon'
 gem 'neat'
+gem 'twilio-ruby', '~> 4.11.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -27,6 +28,7 @@ group :development, :test do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -34,6 +36,10 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'timecop'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
