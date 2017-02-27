@@ -12,7 +12,7 @@
   <%= f.label :time %>
 
   <div class="time-select">
-    <%= f.time_select :time %>
+    <%= f.time_select :time, default: Time.current %>
   </div>
 </div>
 
