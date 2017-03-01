@@ -6,9 +6,6 @@
 
 <% if @tasks.empty? %>
   <h2 class="subtitle"> You have no tasks! </h2>
-  <a class="button is-primary"><%= link_to "Create a task",
-    task_path(:new) %>
-  </a>
 <% else %>
   <% @tasks.each do |task| %>
     <%= link_to edit_task_path(task), class: "task" do %>
