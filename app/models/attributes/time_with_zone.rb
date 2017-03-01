@@ -4,6 +4,6 @@ class TimeWithZone < ActiveRecord::Type::Time
   end
 
   def deserialize(value)
-    super.in_time_zone(Time.zone)
+    super&.in_time_zone(Time.zone)
   end
 end
