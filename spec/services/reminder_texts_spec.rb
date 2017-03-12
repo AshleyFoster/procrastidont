@@ -4,7 +4,7 @@ RSpec.describe ReminderTexts do
   DAY_NAME = "sunday"
 
   around(:each) do |example|
-    Timecop.freeze Time.new(2017, 01, 01, 8, 00, 44)
+    Timecop.freeze Time.new(2017, 01, 01, 8, 00, 44).utc
     example.run
     Timecop.return
   end
@@ -45,6 +45,20 @@ RSpec.describe ReminderTexts do
       reminder.send_reminders
 
       expect(twilio_client.messages).not_to have_received(:create)
+    end
+
+    it "sends reminder using correct time zone" do
+      Time.use_zone "UTC" do
+        scheduled_at = ActiveSupport::TimeZone.new("EST").now
+        user = create(:user, time_zone: "Eastern Time (US & Canada)")
+        task = create(:task, time: scheduled_at, days_of_week: [DAY_NAME])
+        twilio_client = mock_twilio_client
+
+        reminder = ReminderTexts.new(twilio_client)
+        reminder.send_reminders
+
+        expect(twilio_client.messages).to have_received(:create)
+      end
     end
   end
 

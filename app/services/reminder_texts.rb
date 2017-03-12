@@ -19,12 +19,13 @@ class ReminderTexts
 
   def tasks
     today = Date.today.strftime("%A").downcase
-    time = Time.now
+    time = Time.current
     beginning_of_day = Date.today.beginning_of_day
 
     Task.
+      joins(:user).
       where("? = ANY(days_of_week)", today).
-      where("time <= ?", time).
+      where("time <= timezone(users.time_zone, ?)::time", time).
       where("last_sent_at IS NULL OR last_sent_at < ?", beginning_of_day)
   end
 end

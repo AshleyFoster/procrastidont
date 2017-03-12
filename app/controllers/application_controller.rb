@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
+  UPDATEABLE_DEVISE_KEYS = [
+    :phone_number,
+    :time_zone
+  ].freeze
+
   protect_from_forgery with: :exception
 
   around_action :set_time_zone, if: :current_user
@@ -8,9 +13,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [
-      :phone_number, :time_zone
-    ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: UPDATEABLE_DEVISE_KEYS )
+    devise_parameter_sanitizer.permit(:account_update, keys: UPDATEABLE_DEVISE_KEYS )
   end
 
   def set_time_zone(&block)

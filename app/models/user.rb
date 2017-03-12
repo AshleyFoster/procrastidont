@@ -4,11 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable
 
+
+  attribute :time_zone, PostgresFriendlyTimeZone.new
+
   phony_normalize :phone_number, default_country_code: 'US'
 
   validates :phone_number, phony_plausible: {
     ignore_record_country_code: true,
     ignore_record_country_number: true
   }
+
   has_many :tasks
 end
