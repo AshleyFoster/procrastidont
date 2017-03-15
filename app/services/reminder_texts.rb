@@ -11,21 +11,17 @@ class ReminderTexts
         body: task.description,
       )
 
-      task.update(last_sent_at: Date.today)
+      task.update(last_sent_at: DateTime.current.in_time_zone(task.user.time_zone))
     end
   end
 
   private
 
   def tasks
-    today = Date.today.strftime("%A").downcase
-    time = Time.current
-    beginning_of_day = Date.today.beginning_of_day
-
     Task.
       joins(:user).
-      where("? = ANY(days_of_week)", today).
-      where("time <= timezone(users.time_zone, ?)::time", time).
-      where("last_sent_at IS NULL OR last_sent_at < ?", beginning_of_day)
+      where("trim(both from to_char(current_date at time zone users.time_zone, 'day')) = ANY(days_of_week)").
+      where("time <= current_time at time zone users.time_zone").
+      where("last_sent_at IS NULL OR last_sent_at < current_date at time zone users.time_zone")
   end
 end

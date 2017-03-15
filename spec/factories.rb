@@ -3,6 +3,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "person#{n}@example.com" }
     password 'password'
     phone_number '555-555-5555'
+    time_zone 'utc'
   end
 
   factory :task do

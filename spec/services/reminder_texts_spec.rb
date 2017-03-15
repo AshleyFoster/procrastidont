@@ -1,17 +1,12 @@
 require "rails_helper"
 
 RSpec.describe ReminderTexts do
-  DAY_NAME = "sunday"
-
-  around(:each) do |example|
-    Timecop.freeze Time.new(2017, 01, 01, 8, 00, 44).utc
-    example.run
-    Timecop.return
-  end
+  DAY_NAMES = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
   describe "#send_reminders" do
     it "sends texts to correct number with correct description" do
-      task = create(:task, time: Time.now, days_of_week: [DAY_NAME])
+      user = create(:user, time_zone: "UTC")
+      task = create(:task, time: Time.current - 1.minute, days_of_week: DAY_NAMES, user: user)
       twilio_client = mock_twilio_client
       reminder = ReminderTexts.new(twilio_client)
 
@@ -26,7 +21,8 @@ RSpec.describe ReminderTexts do
     end
 
     it "does not send same reminder twice" do
-      task = create(:task, time: Time.now, days_of_week: [DAY_NAME])
+      user = create(:user, time_zone: "UTC")
+      task = create(:task, time: Time.current - 1.minute, days_of_week: DAY_NAMES, user: user)
       twilio_client = mock_twilio_client
       reminder = ReminderTexts.new(twilio_client)
 
@@ -38,7 +34,7 @@ RSpec.describe ReminderTexts do
 
     it "does not send reminder if task time is after now" do
       scheduled_time = Time.now + 10.minutes
-      task = create(:task, time: scheduled_time, days_of_week: [DAY_NAME])
+      task = create(:task, time: scheduled_time, days_of_week: DAY_NAMES)
       twilio_client = mock_twilio_client
       reminder = ReminderTexts.new(twilio_client)
 
@@ -49,9 +45,9 @@ RSpec.describe ReminderTexts do
 
     it "sends reminder using correct time zone" do
       Time.use_zone "UTC" do
-        scheduled_at = ActiveSupport::TimeZone.new("EST").now
+        scheduled_at = Time.current - 6.hours
         user = create(:user, time_zone: "Eastern Time (US & Canada)")
-        task = create(:task, time: scheduled_at, days_of_week: [DAY_NAME])
+        task = create(:task, user: user, time: scheduled_at, days_of_week: DAY_NAMES)
         twilio_client = mock_twilio_client
 
         reminder = ReminderTexts.new(twilio_client)
