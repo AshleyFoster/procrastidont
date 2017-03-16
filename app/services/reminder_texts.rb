@@ -20,8 +20,8 @@ class ReminderTexts
   def tasks
     Task.
       joins(:user).
-      where("trim(both from to_char(current_date at time zone users.time_zone, 'day')) = ANY(days_of_week)").
+      where("trim(both from to_char(current_timestamp at time zone users.time_zone, 'day')) = ANY(days_of_week)").
       where("time <= current_time at time zone users.time_zone").
-      where("last_sent_at IS NULL OR last_sent_at < current_date at time zone users.time_zone")
+      where("last_sent_at IS NULL OR last_sent_at < (current_timestamp at time zone users.time_zone)::date")
   end
 end
