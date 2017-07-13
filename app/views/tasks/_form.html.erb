@@ -1,22 +1,16 @@
-<div>
+<div class="task-form">
   <%= f.label :title %>
   <%= f.text_field :title %>
-</div>
 
-<div>
   <%= f.label :description %>
   <%= f.text_area :description %>
-</div>
 
-<div>
   <%= f.label :time %>
 
   <div class="time-select">
     <%= f.time_select :time, default: Time.current %>
   </div>
-</div>
 
-<div>
   <%= f.label :days_of_week %>
   <div class="days-of-week">
     <% Date::DAYNAMES.each do |day| %>
@@ -26,6 +20,6 @@
         nil
       %>
     <%= f.label "days_of_week_#{day.downcase}", day %>
-    <% end %>
-  </div>
+  <% end %>
+</div>
 </div>

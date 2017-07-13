@@ -4,35 +4,45 @@ body, html {
 
 header {
   background-color: #eee;
-  margin-bottom: 18px;
   padding: 18px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  a {
+    text-decoration: none;
+    color: #333;
 
     .logo {
       font-size: 22px;
-      margin-bottom: 0;
-      flex: 1;
+      margin: 0;
+      margin-left: 20px;
+      padding: 10px;
     }
+  }
 
-    .current-avatar {
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-    }
+  .current-avatar {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
 
-    a {
-      margin-left: 14px;
-      margin-bottom: 0;
-      display: inherit;
-    }
+  a {
+    margin: 0 16px;
+  }
+
+  .navbar {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
   }
 }
 
 .container {
-  max-width: 800px;
+  max-width: 650px;
   margin: 0 auto;
+  padding: 20px;
 }

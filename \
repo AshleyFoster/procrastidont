@@ -1,34 +1,16 @@
 .task-form {
   align-items: center;
 
-  label {
-    display: inline-block;
-    margin: 8px 0;
-    color: #5b5b5b;
-    font-weight: 600;
-  }
-
   .time-select {
     display: flex;
 
     select {
       max-width: 100px;
-      cursor: pointer;
     }
   }
 
   .days-of-week {
     display: flex;
-
-    label {
-      cursor: pointer;
-      padding: 10px;
-      background-color: #eee;
-      color: #777;
-      border-radius: $base-border-radius;
-      margin-right: 10px;
-      margin-bottom: 8px;
-    }
 
     input {
       display: none;
@@ -38,6 +20,21 @@
       background-color: #ccc;
       color: #333;
     }
+
+    label {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #eee;
+      color: #777;
+      border-radius: $base-border-radius;
+      margin-right: 10px;
+      margin-bottom: 8px;
+
+    }
+  }
+
+  .actions {
+    margin-top: 10px;
   }
 }
 

@@ -1,0 +1,28 @@
+.flash-container {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 20px 0;
+
+  &.notice {
+    background: #1565C0;
+  }
+
+  &.alert {
+    background: #444;
+  }
+
+  & + * {
+    margin-top: 0;
+  }
+
+  & + .full {
+    margin-top: 0;
+  }
+}
+
+.flash {
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
