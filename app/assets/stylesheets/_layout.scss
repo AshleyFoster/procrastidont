@@ -25,6 +25,10 @@ header {
     border-radius: 50%;
     width: 30px;
     height: 30px;
+
+    &:hover {
+      border: 1px solid #104c90;
+    }
   }
 
   a {
@@ -45,4 +49,20 @@ header {
   max-width: 650px;
   margin: 0 auto;
   padding: 20px;
+}
+
+@media only screen and ( min-width: 320px) and ( max-width: 480px) {
+  /* Small screens */
+
+  header {
+
+    a {
+      margin-right: 8px;
+      margin-left: 0;
+
+      .logo {
+        margin-left: 10px;
+      }
+    }
+  }
 }

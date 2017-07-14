@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
@@ -21,8 +22,8 @@
             <img class="current-avatar" src="<%= gravatar_url(current_user) %>"/>
           <% end %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> |
-          <%= link_to "Login", new_user_session_path %>
+          <%= link_to "Sign up", new_user_registration_path %>
+          <%= link_to "Login", user_session_path %>
         <% end %>
       </nav>
     </header>

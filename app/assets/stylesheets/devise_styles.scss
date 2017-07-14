@@ -1,6 +1,5 @@
 .devise-form {
   margin: 0 auto;
-  margin-top: 30px;
   max-width: 650px;
   box-sizing: border-box;
   border-radius: 4px;
@@ -9,7 +8,7 @@
   h2 {
     margin: 0;
     padding: 10px;
-    color: #fff;
+    color: #5b5b5b;
     text-align: center;
   }
 
@@ -64,6 +63,7 @@
     padding: 15px;
     margin-top: 10px;
     user-select: none;
+    -webkit-appearance: none;
 
     &:hover {
       background-color: #105099;
@@ -80,6 +80,7 @@ input[type=submit] {
   padding: 15px;
   margin-top: 10px;
   user-select: none;
+  -webkit-appearance: none;
 
   &:hover {
     background-color: #adadad;
@@ -94,6 +95,7 @@ input[type=submit] {
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
+    -webkit-appearance: none;
 
     &:hover {
       text-decoration: underline;
@@ -102,3 +104,6 @@ input[type=submit] {
   }
 }
 
+@media only screen and ( min-width: 320px) and ( max-width: 480px) {
+  /* Small screens */
+}

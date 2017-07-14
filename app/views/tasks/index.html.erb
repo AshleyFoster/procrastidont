@@ -19,11 +19,13 @@
 
         <div class="time-and-days">
           <small class="time"><%= task.time.strftime("%H:%M%p") %></small>
-          <% Date::DAYNAMES.each do |day| %>
-            <span class="day <%= "active" if task.days_of_week.include?(day.downcase) %>">
-              <%= day_to_short_day(day) %>
-            </span>
-          <% end %>
+          <div>
+            <% Date::DAYNAMES.each do |day| %>
+              <span class="day <%= "active" if task.days_of_week.include?(day.downcase) %>">
+                <%= day_to_short_day(day) %>
+              </span>
+            <% end %>
+          </div>
         </div>
       <% end %>
     <% end %>
